@@ -1,0 +1,66 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+</style>
+<link rel="stylesheet" type="text/css" href="styles/signup.css"/>
+	<script type="text/javascript">
+
+	var loginDiv=angular.module('signup',[])
+	loginDiv.controller('login_controller',function ($scope,$http){
+		$scope.ButtonClick=function(){
+		$http.get("http://54.244.60.204:3030").success(function(data)
+		{
+			console.log(data)
+		}).
+		error(function(status)
+		{
+			
+		});
+	}	
+	});
+	</script>
+</head>
+	<body ng-app="signup">
+	<div ng-app="login" ng-controller="login_controller">
+	<label id="lbl_password"><font size="5">Existing Password</font></label>
+	<br>
+	<label id"lbl_user">Existing Password</label>	
+	<input type="password" id="pwd_existing" />
+	<br>
+	<label id"lbl_password_0">Pattern 0</label>
+	<input type="password" id="password_0" />
+	<br>
+	<label id"lbl_password_1">Pattern 1</label>
+	<input type="password" id="password_1" />
+	<br>
+	<label id"lbl_password_2">Pattern 2</label>
+	<input type="password" id="password_2" />
+	<br>
+	<label id"lbl_password_3">Pattern 3</label>
+	<input type="password" id="password_3" />
+	<br>
+	<label id"lbl_password_4">Pattern 4</label>
+	<input type="password" id="password_4" />
+	<br>
+	<label id"lbl_password_3">Pattern 5</label>
+	<input type="password" id="password_5" />
+	<br>
+	<label id"lbl_password_6">Pattern 6</label>
+	<input type="password" id="password_6" />
+	<br>
+	<label id"lbl_password_7">Pattern 7</label>
+	<input type="password" id="password_7" />
+	<br>
+	<label id"lbl_password_8">Pattern 8</label>
+	<input type="password" id="password_8" />
+	<br>
+	<label id"lbl_password_9">Pattern 9</label>
+	<input type="password" id="password_9" />
+	<br>
+	<input type="button" class="login_cancel"  id="login" value="Cancel"/>
+	<input type="button" class="login_button" id="login" value="Login" ng-click="ButtonClick()"/>
+	</div>
+	</body>
+</html>
