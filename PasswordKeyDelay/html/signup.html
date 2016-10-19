@@ -10,13 +10,14 @@
 </head>
 	<body ng-app="signup">
 	<div ng-app="signup" >
+		<form >
 	<label id="lbl_password"><font size="5">TestTT</font></label>
 	<br>
 	<label id"lbl_user">TESTT</label>	
-	<input id="existing_password"  type="password" />
+	<input id="existing_password"  type="password" required/>
 	<br>
 	<label id"lbl_password_0">Pattern 0</label>
-	<input type="password" ng-controller="signup_controller"  id="password_0" ng-keypress="keyPress($event)"  ng-keyup="keyUp($event)" ng-focus="initVar()" />
+	<input type="password" ng-controller="signup_controller"  id="password_0" ng-keypress="keyPress($event)"  ng-keyup="keyUp($event)" ng-focus="initVar()" required/>
 	<br>
 	<label id"lbl_password_1">Pattern 1</label>
 	<input type="password" id="password_1" ng-controller="signup_controller"  id="password_0" ng-keypress="keyPress($event)"  ng-keyup="keyUp($event)" ng-focus="initVar()"/>
@@ -45,8 +46,9 @@
 	<label id"lbl_password_9">Pattern 9</label>
 	<input type="password" id="password_9" ng-controller="signup_controller"  id="password_8" ng-keypress="keyPress($event)"  ng-keyup="keyUp($event)" ng-focus="initVar()"/>
 	<br>
-	<input type="button" class="login_cancel"  id="login" value="Cancel"/>
+	<input type="button" class="login_cancel"  id="login" value="Cancel" />
 	<input type="button" class="login_button" ng-controller="signup_controller" id="login" value="Login" ng-click="changePassword()"/>
+	</form>
 	</div>
 	</body>
 </html>
