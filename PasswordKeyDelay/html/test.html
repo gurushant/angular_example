@@ -4,103 +4,19 @@
    <head>
       <meta charset="UTF-8">
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-      <script type="text/javascript">
-        tempDiv=angular.module('test', []);
-         	var ch=null,prevChar=null;
-         	var startTime=0,endTime=0;
-         	var delayArr=new Array();
+      
+      <script src="signup_controller.js" type="text/javascript">
 
-         	
- 
-         tempDiv.controller("controller",function($scope,$attrs){
-   	        	$scope.keyPress=function(event){
-         		code=event.keyCode;
-         		ch=String.fromCharCode(code);
-         		if(code==13)
-         		{
-         			ch=null;
-         		}
-         		
-         		if(ch!=null){
-         		{
-         			if(prevChar!=null)
-         			{
-         				endTime=new Date().getTime();
-         				diff=endTime-startTime;
-         				token=prevChar+","+ch+"=>"+diff
-         				console.log(token);
-         				delayArr.push(token);
-         				console.log(delayArr);
-         				prevChar=ch;
-         			}
-         		}
-         	}
-         
-         }
-         
-         	$scope.keyUp=function(event){
-         		if(ch!=null)
-         		{
-         			startTime=new Date().getTime();
-         			if(prevChar==null)
-         			{
-         				prevChar=ch;
-         			}
-         		}
-         	}
-
-      });
-
-      //Second input box
-      tempDiv.controller("controller_1",function($scope){
-   	        	$scope.keyPress=function(event){
-         		code=event.keyCode;
-         		ch=String.fromCharCode(code);
-         		if(code==13)
-         		{
-         			ch=null;
-         		}
-         		
-         		if(ch!=null){
-         		{
-         			if(prevChar!=null)
-         			{
-         				endTime=new Date().getTime();
-         				diff=endTime-startTime;
-         				token=prevChar+","+ch+"=>"+diff
-         				console.log(token);
-         				delayArr.push(token);
-         				console.log(delayArr);
-         				prevChar=ch;
-         			}
-         		}
-         	}
-         
-         }
-         
-         	$scope.keyUp=function(event){
-         		if(ch!=null)
-         		{
-         			startTime=new Date().getTime();
-         			if(prevChar==null)
-         			{
-         				prevChar=ch;
-         			}
-         		}
-         	}
-
-      });
-      //end of controller
-         
       </script>
+
+
    </head>
    <body ng-app="test">
-      <input id="b"  type="text"  ng-controller="controller" ng-keypress="keyPress($event)"  ng-keyup="keyUp($event)"/>
+      <input id="a"  type="text"  ng-controller="controller" ng-keypress="keyPress($event)"  ng-keyup="keyUp($event)" ng-focus="initVar()"/>
+      <input id="b"  type="text"  ng-controller="controller" ng-keypress="keyPress($event)"  ng-keyup="keyUp($event)" ng-focus="initVar()"/>
       <br>
-      <input id="a" type="text"  ng-controller="controller_1" ng-keypress="keyPress($event)"  ng-keyup="keyUp($event)"/>
-      <p> Key Down {{down}}
-      <p>
-      <p>Key up {{up}} </p>
+      <input id="c" type="button" ng-controller="controller" value="Show Data" ng-click="showData()"/>
+
    </body>
 </html>
 
