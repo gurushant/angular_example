@@ -46,7 +46,6 @@
    console.log("Initilizing variables...");
    if (delayArr.length > 0) {
     passwordData[attribute] = delayArr;
-    console.log("d==" + passwordData);
     ch = null;
     prevChar = null;
     startTime = 0;
@@ -71,15 +70,20 @@
     };
 
      if (delayArr.length > 0) {
-    passwordData[attribute] = delayArr;
-    console.log("d==" + passwordData);
-    ch = null;
-    prevChar = null;
-    startTime = 0;
-    endTime = 0;
-    delayArr = new Array();
-    attribute = null;
-   }
+      passwordData[attribute] = delayArr;
+      ch = null;
+      prevChar = null;
+      startTime = 0;
+      endTime = 0;
+      delayArr = new Array();
+      attribute = null;
+     }
+     // existing_pass=angular.element('#existing_password').val();
+     // console.log("$scope.existing_password=="+existing_pass);
+     // console.log("json=="+JSON.stringify(passwordData, null, 4));
+     console.log("existing password"+document.getElementById('existing_password').value);
+     passwordData["existing_password"]=document.getElementById('existing_password').value;
+     console.log(JSON.stringify(passwordData, null, 4));
 
     $http.post("http://54.201.86.119:9090/rest/changePassword",JSON.stringify(passwordData, null, 4),config).success(function(data)
     {
