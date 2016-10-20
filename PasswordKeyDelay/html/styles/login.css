@@ -72,3 +72,11 @@ input[type=password]
 			    border: 1px solid blue;
 			    border-radius: 4px;
 		}
+
+input[required], select[required] {
+			    background-image: url('images/star.png');
+			    content: "*";
+			    background-repeat: no-repeat;
+			    background-position-x:right;
+			    background-position-y:center;
+}

@@ -81,7 +81,7 @@ input[type=password]
 		}
 
 input[required], select[required] {
-			    background-image: url('star.png');
+			    background-image: url('images/star.png');
 			    content: "*";
 			    background-repeat: no-repeat;
 			    background-position-x:right;
