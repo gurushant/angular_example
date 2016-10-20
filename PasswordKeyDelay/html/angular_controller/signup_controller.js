@@ -1,8 +1,8 @@
  signUpDiv = angular.module('signup', []);
  var ch = null,
-  prevChar = null;
+ prevChar = null;
  var startTime = 0,
-  endTime = 0;
+ endTime = 0;
  var delayArr = new Array();
  var passwordData = new Map();
  var attribute = null;
@@ -67,7 +67,7 @@
         'Accept': 'application/json',
         'Content-Type':'application/json',
     }
-    };
+  };
 
      if (delayArr.length > 0) {
       passwordData[attribute] = delayArr;
@@ -85,7 +85,11 @@
      passwordData["existing_password"]=document.getElementById('existing_password').value;
      console.log(JSON.stringify(passwordData, null, 4));
 
-    $http.post("http://54.201.86.119:9090/rest/changePassword",JSON.stringify(passwordData, null, 4),config).success(function(data)
+     boolVal=verifyInput();
+
+    if(boolVal==true)
+    {
+    $http.post("http://54.218.148.213:9090/rest/changePassword",JSON.stringify(passwordData, null, 4),config).success(function(data)
     {
       console.log("json=="+JSON.stringify(passwordData, null, 4));
       console.log("response from sign up "+data);
@@ -93,7 +97,83 @@
     error(function(status)
     {
       
-    }); 
+    });
+    } 
   }
 
- });
+  function verifyInput()
+  {
+    var retVal=true;
+    var newPwd=null;
+    existing_pwd=document.getElementById('existing_password').value;
+    if(existing_pwd!=null && existing_pwd.length==0)
+    {
+      document.getElementById("existing_password").style["border"] = "2px solid red";      
+      retVal=false;
+    }
+    newPwdFirst=document.getElementById('password_0').value;
+    if(newPwdFirst==null || newPwdFirst.length==0 )
+    {
+      document.getElementById("password_0").style["border"] = "2px solid red";      
+      retVal=false;
+    }
+    newPwd=document.getElementById('password_1').value;
+    if(newPwd==null || newPwd.length==0 || newPwdFirst!=newPwd)
+    {
+      document.getElementById("password_1").style["border"] = "2px solid red";      
+      retVal=false;
+    }
+    newPwd=document.getElementById('password_2').value;
+    if(newPwd==null || newPwd.length==0 || newPwdFirst!=newPwd)
+    {
+      document.getElementById("password_2").style["border"] = "2px solid red";      
+      retVal=false;
+    }
+    newPwd=document.getElementById('password_3').value;
+    if(newPwd==null || newPwd.length==0 || newPwdFirst!=newPwd)
+    {
+      document.getElementById("password_3").style["border"] = "2px solid red";      
+      retVal=false;
+    }
+    newPwd=document.getElementById('password_4').value;
+    if(newPwd==null || newPwd.length==0 || newPwdFirst!=newPwd)
+    {
+      document.getElementById("password_4").style["border"] = "2px solid red";      
+      retVal=false;
+    }
+    newPwd=document.getElementById('password_5').value;
+    if(newPwd==null || newPwd.length==0 || newPwdFirst!=newPwd)
+    {
+      document.getElementById("password_5").style["border"] = "2px solid red";      
+      retVal=false;
+    }
+    newPwd=document.getElementById('password_6').value;
+    if(newPwd==null || newPwd.length==0 || newPwdFirst!=newPwd)
+    {
+      document.getElementById("password_6").style["border"] = "2px solid red";      
+      retVal=false;
+    }
+    newPwd=document.getElementById('password_7').value;
+    if(newPwd==null || newPwd.length==0 || newPwdFirst!=newPwd)
+    {
+      document.getElementById("password_7").style["border"] = "2px solid red";      
+      retVal=false;
+    }
+
+    newPwd=document.getElementById('password_8').value;
+    if(newPwd==null || newPwd.length==0 || newPwdFirst!=newPwd)
+    {
+      document.getElementById("password_8").style["border"] = "2px solid red";      
+      retVal=false;
+    }
+    newPwd=document.getElementById('password_9').value;
+    if(newPwd==null || newPwd.length==0 || newPwdFirst!=newPwd)
+    {
+      document.getElementById("password_9").style["border"] = "2px solid red";      
+      retVal=false;
+    }
+
+    return retVal;
+  }
+
+});
