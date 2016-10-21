@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript">
+	module=angular.module('item_list', []);
+	module.controller('items',function($scope)
+	{
+		$scope.addRow=function()
+		{
+		    var table = document.getElementById("items");
+		    var row = table.insertRow(0);
+		    var cell1 = row.insertCell(0);
+		    var cell2 = row.insertCell(1);
+		    cell1.innerHTML = "NEW CELL1";
+		    cell2.innerHTML = "NEW CELL2";
+		}
+	});
+</script>
+<link rel="stylesheet" type="text/css" href="styles/table.css"/>
+</head>
+	<body ng-app="item_list">
+		<div>
+			<table id="items" ng-controller="items">
+				<tr>
+					<td>Test</td>
+					<td>Data</td>
+					<td>Test</td>
+					<td>Data</td>
+					<td>Test</td>
+					<td>Data</td>
+				</tr>					
+			</table>
+			<input type="button" value="Add Row" ng-controller="items" ng-click="addRow()"/>
+		</div>
+	</body>
+</html>
