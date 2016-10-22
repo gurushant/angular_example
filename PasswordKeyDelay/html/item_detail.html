@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles/item_detail.css"/>
+	</head>
+	<body ng-app="item_detail_app">
+		<div ng-controller="item_controller">
+			<div class="inner_div">
+			<label>Product Name</label>
+			<input id="prod_name" ng-controller="item_controller" type="text"/>
+			<br>
+			<label>Product Price/<label>
+			<input id="prod_name" ng-controller="item_controller" type="number"/>
+			<br>
+			<label>Discount in (%)</label>
+			<input id="prod_discount" ng-controller="item_controller" type="number"/>
+			<br>
+			<label>Product Image</label>
+			<input id="upload" class="login_button" type="file" ng-controller="item_controller" value="Upload Product"/>
+			</div>
+		</div>
+	</body>
+</html>

@@ -20,6 +20,7 @@
 <link rel="stylesheet" type="text/css" href="styles/table.css"/>
 </head>
 	<body ng-app="item_list">
+		<input type="button" class="add_item_button" value="Add Row" ng-controller="items" ng-click="addRow()"/> 
 		<div>
 			<table id="items" ng-controller="items">
 				<tr>
@@ -31,7 +32,7 @@
 					<td>Data</td>
 				</tr>					
 			</table>
-			<input type="button" value="Add Row" ng-controller="items" ng-click="addRow()"/>
+			
 		</div>
 	</body>
 </html>
