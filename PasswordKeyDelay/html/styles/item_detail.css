@@ -10,9 +10,10 @@ div 	{
     background-color: #f3f3f3;
 }
 
+
 .inner_div 	{
 				width: 60%;
-				height: 60%;
+				height: 70%;
 			    position: absolute;
 			    top:0;
 			    text-align: center;
@@ -23,8 +24,8 @@ div 	{
 			    left: 0;
 			    right: 0;
 			    margin: auto;
-		}
 
+		}
 
 
 .add_item_button 
@@ -44,7 +45,7 @@ input[type=text]
 		{
 			    width: 30%;
 			    padding: 12px 20px;
-			    margin: 8px 0;
+			    margin: 1px 0;
 			    margin-top: 1%;
 			    align:left;
 			    box-sizing: border-radius;
@@ -57,7 +58,7 @@ input[type=file]
 		{
 			    width: 30%;
 			    padding: 12px 20px;
-			    margin: 8px 0;
+			    margin: 1px 0;
 			    margin-top: 1%;
 			    align:left;
 			    box-sizing: border-radius;
@@ -69,7 +70,7 @@ input[type=number]
 		{
 			    width: 30%;
 			    padding: 12px 20px;
-			    margin: 8px 0;
+			    margin: 1px 0;
 			    margin-top: 1%;
 			    align:left;
 			    box-sizing: border-radius;
@@ -79,13 +80,13 @@ input[type=number]
 
 
 
-.login_button 
+.upload_button 
 		{
-			    width: 20%;
+			    width: 30%;
 			    padding: 12px 20px;
 			    margin: 8px;
-			    margin-top: 1%;
-			    margin-left: 8%;
+			    margin-top: 5%;
+			    margin-left: 16%;
 			    align:center;
 			    box-sizing: border-radius;
 			    border: 1px solid blue;
