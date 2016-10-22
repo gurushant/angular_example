@@ -3,10 +3,12 @@ var app = express();
 var bodyParser=require('body-parser');
 var mysql=require('mysql');
 var session=require('express-session');
+var fileUpload = require('express-fileupload');
 
 
 app.use(bodyParser());
 app.use(session({secret: 'ssshhhhh'}));
+app.use(fileUpload());
 
 
 var connection=mysql.createConnection({host:'localhost',user:'root',password:'root',database:'admin'});
@@ -22,10 +24,45 @@ app.get('/test',function(req,res){
 	res.json({'message':'data from test'});
 });
 
+//method to upload the file
+app.post('/rest/uploadProd',function(req,res,next)
+{
+     var sampleFile;
+     res.header("Access-Control-Allow-Origin", "*");
+    if (!req.files) {
+        res.send('No files were uploaded.');
+        return;
+    }
+	console.log("Request received..."); 
+	 var convJson=JSON.stringify(req.body);
+        console.log("text=",convJson);
+	var jsonObj=JSON.parse(convJson);
+ 	var price=jsonObj["price"];
+	var name=jsonObj["name"];
+	var discount=jsonObj["discount"];	
+        var filePath='images/'+new Date().getTime()+'.png'
+	console.log('insert into product_details(prod_name,prod_price,prod_discount,prod_image_path) values("'+name+'","'+price+'","'+discount+'","'+filePath+'")');
+	 connection.query('insert into product_details(prod_name,prod_price,prod_discount,prod_image_path) values("'+name+'","'+price+'","'+discount+'","'+filePath+'")',function(err,result)
+                         {
+                         });
+	sampleFile = req.files.file;
+    	sampleFile.mv(filePath, function(err) {
+        if (err) {
+            res.status(500).send(err);
+        }
+        else {
+            res.send('File uploaded!');
+        }
+
+
+    });
+});
+
 
 var session;
 app.post('/rest/login',function(req,res){
 	console.log(req.session);
+	res.header("Access-Control-Allow-Origin", "*");
 	req.session.token='Pratibha';
 	res.send("Logged in..");
 });
