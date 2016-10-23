@@ -24,6 +24,23 @@ app.get('/test',function(req,res){
 	res.json({'message':'data from test'});
 });
 
+//Method to get list of available product.
+app.get('/rest/getProducts',function(req,res)
+{
+	console.log("Request received...");
+	 res.header("Access-Control-Allow-Origin", "*");
+	    res.setHeader('Content-Type', 'application/json');
+	var jsonResult=null;
+	 connection.query('select *from product_details order by id',function(err,data)
+	{
+             		jsonResult=JSON.stringify(data);
+			 console.log(jsonResult);
+		        res.send(jsonResult);
+
+	});
+
+});
+
 //method to upload the file
 app.post('/rest/uploadProd',function(req,res,next)
 {
@@ -40,9 +57,10 @@ app.post('/rest/uploadProd',function(req,res,next)
  	var price=jsonObj["price"];
 	var name=jsonObj["name"];
 	var discount=jsonObj["discount"];	
-        var filePath='images/'+new Date().getTime()+'.png'
-	console.log('insert into product_details(prod_name,prod_price,prod_discount,prod_image_path) values("'+name+'","'+price+'","'+discount+'","'+filePath+'")');
-	 connection.query('insert into product_details(prod_name,prod_price,prod_discount,prod_image_path) values("'+name+'","'+price+'","'+discount+'","'+filePath+'")',function(err,result)
+	var fileName=new Date().getTime()+'.png';
+        var filePath='images/'+fileName;
+	console.log('insert into product_details(prod_name,prod_price,prod_discount,prod_image_path) values("'+name+'","'+price+'","'+discount+'","'+fileName+'")');
+	 connection.query('insert into product_details(prod_name,prod_price,prod_discount,prod_image_path) values("'+name+'","'+price+'","'+discount+'","'+fileName+'")',function(err,result)
                          {
                          });
 	sampleFile = req.files.file;
