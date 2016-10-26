@@ -16,21 +16,12 @@
 				<input type="input" ng-model="length"/>
 		<div ng-repeat="img in images">
 			<table id="items" >
-				<tr ng-repeat="img in images">
-					<td>
-						<img ng-src="{{ img.first }}"/>
+				<tr ng-repeat="n in range(0,1)">
+					<td ng-repeat="img in images" ng-init="$parent.	$index=$index+2" ng-if="$index==0 || $index%2!=0">
+ 						<img ng-src="{{ img }}"/>
 						<input type="button" class="add_to_cart_button" value="Add To Cart" ng:click="addToCart(img)"></input>
+ 						{{ $parent.$index }}		
 					</td>
-					<td>
-						<img ng-src="{{ img.second }}"/>
-						<input type="button" class="add_to_cart_button" value="Add To Cart" ng:click="addToCart(img)"></input>
- 						
-					</td>
-					<td>
-						<img ng-src="{{ img.third }}"/>
-						<input type="button" class="add_to_cart_button" value="Add To Cart" ng:click="addToCart(img)"></input>
-					</td>
-
 				</tr>
 
 

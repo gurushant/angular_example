@@ -2,10 +2,29 @@
 	module.controller('items',function($scope,$http,$window)
 	{
 		$scope.cart_button=false;
-		$scope.images=["product_images/1.jpg","product_images/2.jpg","product_images/3.jpg"];
-		var prodAr={};
+				var prodAr={};
 		var prodList=null;
 		var i=1;
+
+		$http.get("http://54.201.193.216:9090/rest/fetchProducts").success(function(data)
+					{
+						$scope.images=data;
+						$scope.length=data.length;
+						console.log("length="+data.length);
+					}).
+					error(function(status)
+					{
+						console.log("Error occured");
+					});
+
+		$scope.range = function(min, max, step) {
+					    step = step || 1;
+					    var input = [];
+					    for (var i = min; i <= max; i += step) {
+					        input.push(i);
+					    }
+					    return input;
+					};
 
 		$scope.addToCart=function(item)
 		{
