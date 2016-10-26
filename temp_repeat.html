@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="angular_controller/item_list_controller.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="styles/table.css"/>
+
+
+	
+</head>
+	
+	<body ng-app="item_list" ng-controller="items as it">
+				<input type="button" class="go_to_cart_button" ng-show="cart_button" value="Go To Cart" ng-click="goToCart()"></input>
+				<input type="button" ng-click="log()"></input>
+		<div ng-repeat="img in images">
+			<table id="items" >
+				<tr>
+					<td ng-repeat="img in images">
+						<img ng-src="{{ img }}"/>
+						<input type="button" class="add_to_cart_button" value="Add To Cart" ng:click="addToCart(img)"></input>
+
+					</td>
+				</tr>
+			</table>
+			
+		</div>
+	</body>
+</html>

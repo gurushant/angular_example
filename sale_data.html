@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script>
+    	angular.module('myModule', [])
+    		.controller('myController', function ($scope) {
+				Highcharts.chart('container', {
+
+				    xAxis: {
+				        categories: ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 
+				            'Sat']
+				    },
+
+				    series: [{
+				        data: [5,10,12,16,25,43,50]
+				    }]
+				});
+    		});
+    </script>
+
+
+</head>
+<body ng-app='myModule' ng-controller="myController">
+    <div id="container">Placeholder for chart</div>
+</body>
+</html>
