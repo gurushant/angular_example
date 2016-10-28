@@ -5,30 +5,28 @@
 <script src="angular_controller/item_list_controller.js" type="text/javascript"></script>
 
 <link rel="stylesheet" type="text/css" href="styles/table.css"/>
-
-
 	
 </head>
 	
 	<body ng-app="item_list" ng-controller="items as it">
 				<input type="button" class="go_to_cart_button" ng-show="cart_button" value="Go To Cart" ng-click="goToCart()"></input>
-				<input type="button" ng-click="log()"></input>
-				<input type="input" ng-model="length"/>
+				<label>Item count in cart is </label>
+				<input type="input" ng-model="length" />
 		<div ng-repeat="img in images">
 			<table id="items" >
 				<tr ng-repeat="img in images">
 					<td>
 						<img ng-src="{{ img.first }}"/>
-						<input type="button" class="add_to_cart_button" value="Add To Cart" ng:click="addToCart(img)"></input>
+						<input type="button" class="add_to_cart_button" value="Add To Cart" ng:click="addToCart(img.first)"></input>
 					</td>
 					<td>
 						<img ng-src="{{ img.second }}"/>
-						<input type="button" class="add_to_cart_button" value="Add To Cart" ng:click="addToCart(img)"></input>
+						<input type="button" class="add_to_cart_button" value="Add To Cart" ng:click="addToCart(img.second)"></input>
  						
 					</td>
 					<td>
 						<img ng-src="{{ img.third }}"/>
-						<input type="button" class="add_to_cart_button" value="Add To Cart" ng:click="addToCart(img)"></input>
+						<input type="button" class="add_to_cart_button" value="Add To Cart" ng:click="addToCart(img.third)"></input>
 					</td>
 
 				</tr>

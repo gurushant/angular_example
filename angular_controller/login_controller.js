@@ -6,7 +6,9 @@ var loginDiv=angular.module('login',[]);
  endTime = 0;
  var delayArr = new Array();
  var attribute = null;
-
+ var SERVER_IP="54.213.94.53";
+ var PORT="9090";
+ var serverAddr=SERVER_IP+":"+PORT;
 loginDiv.controller('login_controller',function ($scope,$attrs,$http,$window){
 				$scope.login=function(){
 
@@ -15,7 +17,7 @@ loginDiv.controller('login_controller',function ($scope,$attrs,$http,$window){
   				var isValid=verifyInput();
   				if(isValid==true)
   				{
-					$http.post("http://54.201.193.216:9090/rest/login").success(function(data)
+					$http.post("http://"+serverAddr+"/rest/login").success(function(data)
 					{
 						$window.location.href = data;		
 					}).

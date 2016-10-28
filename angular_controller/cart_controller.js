@@ -1,4 +1,5 @@
 var module=angular.module('cart',[]);
+
 module.controller('cart',function($scope,$location,$window)
 	{
 		var queryParam=$window.location.search;

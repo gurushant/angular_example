@@ -1,4 +1,7 @@
 	module=angular.module('item_list', []);
+	var SERVER_IP="54.213.94.53";
+ 	var PORT="9090";
+ 	var serverAddr=SERVER_IP+":"+PORT;
 	module.controller('items',function($scope,$http,$window)
 	{
 		$scope.cart_button=false;
@@ -6,7 +9,7 @@
 		var prodList=null;
 		var i=1;
 
-		$http.get("http://54.201.193.216:9090/rest/fetchProducts").success(function(data)
+		$http.get("http://"+serverAddr+"/rest/fetchProducts").success(function(data)
 					{
 						$scope.images=data;
 						$scope.length=data.length;
@@ -43,9 +46,10 @@
 				prodList=prodList+','+item;
 			}
 			$scope.count="Cart Product count is "+i;
+			$scope.length=i;
 			i++;
 			console.log(prodList);
-			console.log(item);
+			console.log("item is "+item);
 		}
 		$scope.goToCart=function()
 		{
