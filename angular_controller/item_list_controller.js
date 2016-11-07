@@ -1,11 +1,11 @@
 	module=angular.module('item_list', []);
-	var SERVER_IP="54.213.94.53";
+	var SERVER_IP="54.214.201.205";
  	var PORT="9090";
  	var serverAddr=SERVER_IP+":"+PORT;
 	module.controller('items',function($scope,$http,$window)
 	{
 		$scope.cart_button=false;
-				var prodAr={};
+    	var prodAr={};
 		var prodList=null;
 		var i=1;
 

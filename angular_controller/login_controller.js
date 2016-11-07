@@ -6,7 +6,7 @@ var loginDiv=angular.module('login',[]);
  endTime = 0;
  var delayArr = new Array();
  var attribute = null;
- var SERVER_IP="54.213.94.53";
+ var SERVER_IP="54.214.201.205";
  var PORT="9090";
  var serverAddr=SERVER_IP+":"+PORT;
 loginDiv.controller('login_controller',function ($scope,$attrs,$http,$window){

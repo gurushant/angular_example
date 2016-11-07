@@ -7,9 +7,9 @@
 </style>
 <link rel="stylesheet" type="text/css" href="styles/cart.css"/>
 </head>
-	<body ng-app="cart">
-		<div ng-controller="cart" id="cart">
-
+	<body ng-app="cart" ng-controller="cart">
+		<div   id="cart">
+			<img ng-repeat="prod in prodList" ng-src="{{ prod }}" height="140" width="100" border=1/>
 			<input type="button" class="place_order_button"  value="Place Order" ng-click="placeOrder()"></input>
 		</div>
 
